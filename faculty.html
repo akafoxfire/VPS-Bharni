@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty &amp; Principal — Vikas Public School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="crest" aria-hidden="true">
+        <svg viewBox="0 0 60 60" width="42" height="42">
+          <polygon points="30,3 55,15 55,33 30,57 5,33 5,15" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M30 16 L30 42 M18 24 Q30 16 42 24 M18 34 Q30 26 42 34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Vikas</span>
+        <span class="brand-sub">Public School</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#academics">Academics</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="faculty.html" aria-current="page">Faculty &amp; Principal</a></li>
+        <li><a href="index.html#notices">Notices</a></li>
+        <li><a href="index.html#admissions">Admissions</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-ghost nav-cta" href="login.html">Login</a>
+    <a class="btn btn-gold nav-cta" href="index.html#admissions">Apply Now</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="faculty.html">Faculty &amp; Principal</a></li>
+      <li><a href="index.html#admissions">Admissions</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section page-hero">
+    <div class="section-inner">
+      <p class="eyebrow">Faculty &amp; Principal</p>
+      <h1>The people who run Vikas Public School</h1>
+    </div>
+  </section>
+
+  <!-- Principal's note -->
+  <section class="section principal-note">
+    <div class="section-inner principal-grid">
+      <div class="principal-photo" aria-hidden="true">AS</div>
+      <div>
+        <p class="eyebrow">A note from the Principal</p>
+        <h2>For our students and parents</h2>
+        <blockquote id="principalNote" class="principal-quote">Loading…</blockquote>
+        <p class="principal-signoff" id="principalSignoff"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teacher directory -->
+  <section class="section faculty" id="teacherList">
+    <div class="section-inner">
+      <p class="eyebrow">Teaching staff</p>
+      <h2>Meet the teachers</h2>
+      <div class="faculty-grid" id="teacherGrid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="crest" aria-hidden="true">
+        <svg viewBox="0 0 60 60" width="32" height="32">
+          <polygon points="30,3 55,15 55,33 30,57 5,33 5,15" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </span>
+      <div>
+        <p class="brand-name">Vikas Public School</p>
+        <p class="footer-tagline">Where curiosity puts down roots.</p>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#about">About</a>
+      <a href="students.html">Students</a>
+      <a href="login.html">Login</a>
+    </nav>
+    <p class="footer-legal">© 2026 Vikas Public School. Bharni, Srimadhopur, Sikar, Rajasthan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+  const principal = TEACHERS.find(t => t.role === 'Principal');
+  document.getElementById('principalNote').textContent = principal.note;
+  document.getElementById('principalSignoff').textContent = `— ${principal.name}, Principal · ${principal.experience} at Vikas Public School`;
+
+  const teacherGrid = document.getElementById('teacherGrid');
+  const initials = (name) => name.split(' ').map(n => n[0]).join('').slice(0,2).toUpperCase();
+  const tints = ['#8f6b2e','#2f5233','#7a3b3b','#1b2a4a'];
+
+  teacherGrid.innerHTML = TEACHERS.filter(t => t.role !== 'Principal').map((t, i) => `
+    <article class="faculty-card">
+      <div class="faculty-photo" style="--tint:${tints[i % tints.length]}">${initials(t.name)}</div>
+      <h3>${t.name}</h3>
+      <p class="faculty-role">${t.role} · ${t.subject}</p>
+      <p class="faculty-bio">${t.qualification}. ${t.experience} of experience.${t.classTeacherOf ? ` Class teacher of Class ${t.classTeacherOf}.` : ''}</p>
+    </article>
+  `).join('');
+</script>
+</body>
+</html>
