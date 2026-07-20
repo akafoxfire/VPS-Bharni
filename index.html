@@ -336,8 +336,10 @@
         <p class="admissions-note">Admissions for the 2026–27 academic year are open for Nursery through Class IX, subject to seat availability.</p>
       </div>
 
-      <form class="admissions-form" id="admissionForm" novalidate>
+      <!-- Replace YOUR_FORM_ID below with the ID Formspree gives you after creating a form at formspree.io -->
+      <form class="admissions-form" id="admissionForm" action="https://formspree.io/f/xykrjnkp" method="POST" novalidate>
         <h3>Admission enquiry</h3>
+        <input type="hidden" name="_subject" value="New Admission Enquiry — Vikas Public School">
         <div class="form-row">
           <label for="parentName">Parent / guardian name</label>
           <input type="text" id="parentName" name="parentName" required>
