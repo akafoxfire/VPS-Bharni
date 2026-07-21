@@ -27,7 +27,8 @@
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
+html{ scroll-behavior: smooth; overflow-x: hidden; }
+body{ overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
@@ -212,7 +213,14 @@ img{ max-width:100%; display:block; }
   .ring-4{ animation-delay: 0.7s; }
 }
 @keyframes drawRing{ to{ stroke-dashoffset: 0; } }
-@media (max-width: 880px){ .hero-rings{ display:none; } }
+@media (max-width: 880px){
+  .hero-rings{ display:none; }
+  .hero-inner{ padding: 3.2rem 1.25rem 2.8rem; }
+  .hero-bg-img{ object-position: center 22%; }
+  .hero-bg-overlay{
+    background: linear-gradient(180deg, rgba(13,22,43,0.72) 0%, rgba(13,22,43,0.55) 45%, rgba(13,22,43,0.72) 100%);
+  }
+}
 
 /* ---------------- About ---------------- */
 .about{ background: var(--ivory); }
@@ -384,7 +392,7 @@ input:focus, select:focus, textarea:focus{ border-color: var(--gold); }
 .footer-brand .crest{ color: var(--gold); }
 .footer-brand .brand-name{ color: var(--paper); font-family: var(--font-display); font-size:1rem; margin:0; }
 .footer-tagline{ font-size:0.8rem; margin:0; color: rgba(247,243,234,0.55); }
-.footer-nav{ display:flex; gap:1.3rem; }
+.footer-nav{ display:flex; flex-wrap:wrap; gap:0.9rem 1.3rem; }
 .footer-nav a{ text-decoration:none; font-size:0.85rem; color: rgba(247,243,234,0.75); }
 .footer-nav a:hover{ color: var(--gold-light); }
 .footer-legal{ font-size:0.76rem; color: rgba(247,243,234,0.4); width:100%; margin: 0.5rem 0 0; }
