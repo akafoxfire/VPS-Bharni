@@ -16,6 +16,17 @@ if (navToggle && mobileNav) {
   });
 }
 
+// ===== Hero background photo slideshow (index.html only) =====
+const heroBgImgs = document.querySelectorAll('.hero-bg-img');
+if (heroBgImgs.length > 1) {
+  let activeIndex = 0;
+  setInterval(() => {
+    heroBgImgs[activeIndex].classList.remove('is-active');
+    activeIndex = (activeIndex + 1) % heroBgImgs.length;
+    heroBgImgs[activeIndex].classList.add('is-active');
+  }, 5000);
+}
+
 // ===== Academics stage tabs + growth rings (index.html only) =====
 const stageTabs = document.querySelectorAll('.stage-tab');
 const stagePanels = document.querySelectorAll('.stage-panel-content');
@@ -48,7 +59,7 @@ const admissionForm = document.getElementById('admissionForm');
 const formStatus = document.getElementById('formStatus');
 
 if (admissionForm && formStatus) {
-  admissionForm.addEventListener('submit', async (e) => {
+  admissionForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (!admissionForm.checkValidity()) {
@@ -57,36 +68,12 @@ if (admissionForm && formStatus) {
       return;
     }
 
-    const submitBtn = admissionForm.querySelector('button[type="submit"]');
     const data = new FormData(admissionForm);
-    const parentName = data.get('parentName');
+    console.log('Admission enquiry submitted:', Object.fromEntries(data));
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    formStatus.textContent = '';
-
-    try {
-      const response = await fetch(admissionForm.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        formStatus.textContent = `Thanks, ${parentName}. We've received your enquiry and will contact you within two working days.`;
-        formStatus.style.color = '#2F5233';
-        admissionForm.reset();
-      } else {
-        formStatus.textContent = "Something went wrong sending your enquiry — please call the admissions office instead.";
-        formStatus.style.color = '#7A3B3B';
-      }
-    } catch (err) {
-      formStatus.textContent = "Couldn't reach the server — check your connection and try again, or call the admissions office.";
-      formStatus.style.color = '#7A3B3B';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Enquiry';
-    }
+    formStatus.textContent = `Thanks, ${data.get('parentName')}. We've received your enquiry and will contact you within two working days.`;
+    formStatus.style.color = '#2F5233';
+    admissionForm.reset();
   });
 }
 

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,12 +20,7 @@
 <header class="site-header" id="top">
   <div class="header-inner">
     <a class="brand" href="#top">
-      <span class="crest" aria-hidden="true">
-        <svg viewBox="0 0 60 60" width="42" height="42">
-          <polygon points="30,3 55,15 55,33 30,57 5,33 5,15" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M30 16 L30 42 M18 24 Q30 16 42 24 M18 34 Q30 26 42 34" fill="none" stroke="currentColor" stroke-width="1.6"/>
-        </svg>
-      </span>
+      <img class="crest crest-img" src="assets/logo.png" alt="Vikas Public School crest" width="42" height="42" loading="eager" fetchpriority="high">
       <span class="brand-text">
         <span class="brand-name">Vikas</span>
         <span class="brand-sub">Public School</span>
@@ -71,6 +67,12 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="assets/event1.jpg" class="hero-bg-img is-active" alt="">
+      <img src="assets/event2.jpg" class="hero-bg-img" alt="">
+      <img src="assets/event3.jpg" class="hero-bg-img" alt="">
+      <div class="hero-bg-overlay"></div>
+    </div>
     <div class="hero-inner">
       <p class="eyebrow">Est. 1998 &nbsp;·&nbsp; RBSE Affiliation No. 213456 &nbsp;·&nbsp; Nursery – Class XII</p>
       <h1>Where curiosity<br>puts down roots.</h1>
@@ -336,10 +338,8 @@
         <p class="admissions-note">Admissions for the 2026–27 academic year are open for Nursery through Class IX, subject to seat availability.</p>
       </div>
 
-      <!-- Replace YOUR_FORM_ID below with the ID Formspree gives you after creating a form at formspree.io -->
-      <form class="admissions-form" id="admissionForm" action="https://formspree.io/f/xykrjnkp" method="POST" novalidate>
+      <form class="admissions-form" id="admissionForm" novalidate>
         <h3>Admission enquiry</h3>
-        <input type="hidden" name="_subject" value="New Admission Enquiry — Vikas Public School">
         <div class="form-row">
           <label for="parentName">Parent / guardian name</label>
           <input type="text" id="parentName" name="parentName" required>
@@ -409,11 +409,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="crest" aria-hidden="true">
-        <svg viewBox="0 0 60 60" width="32" height="32">
-          <polygon points="30,3 55,15 55,33 30,57 5,33 5,15" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
+      <img class="crest crest-img" src="assets/logo.png" alt="Vikas Public School crest" width="32" height="32" loading="lazy">
       <div>
         <p class="brand-name">Vikas Public School</p>
         <p class="footer-tagline">Where curiosity puts down roots.</p>
