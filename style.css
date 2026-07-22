@@ -330,12 +330,22 @@ img{ max-width:100%; display:block; }
 .gallery-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top:2.5rem; }
 .gallery-tile{
   margin:0; aspect-ratio: 4/3; border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--from), var(--to));
+  background: var(--ivory);
   display:flex; align-items:flex-end; padding: 1rem; position:relative; overflow:hidden;
 }
+.gallery-tile img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  transition: transform 0.4s ease;
+}
+.gallery-tile:hover img{ transform: scale(1.06); }
+.gallery-tile::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(13,22,43,0) 55%, rgba(13,22,43,0.65) 100%);
+}
 .gallery-tile figcaption{
+  position:relative; z-index:1;
   color: var(--paper); font-family: var(--font-mono); font-size:0.78rem;
-  background: rgba(13,22,43,0.45); padding: 0.4em 0.7em; border-radius:2px;
+  padding: 0.2em 0;
 }
 .gallery-note{ font-size:0.82rem; color: var(--ink-soft); margin-top:1rem; font-style: italic; }
 @media (max-width: 780px){ .gallery-grid{ grid-template-columns: 1fr 1fr; } }
