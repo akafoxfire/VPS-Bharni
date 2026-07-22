@@ -413,6 +413,32 @@ input:focus, select:focus, textarea:focus{ border-color: var(--gold); }
 
 .hidden{ display:none !important; }
 
+/* ===================================================================
+   Visitor disclaimer modal — clarifies this is a demo project
+=================================================================== */
+.disclaimer-overlay{
+  position:fixed; inset:0; z-index:1000;
+  background: rgba(13,22,43,0.75);
+  display:flex; align-items:center; justify-content:center;
+  padding: 1.5rem;
+}
+.disclaimer-overlay.hidden{ display:none; }
+.disclaimer-box{
+  background: var(--paper); border-radius: var(--radius);
+  max-width: 540px; width:100%; padding: 2.2rem 2rem 1.9rem;
+  border-top: 4px solid var(--gold);
+  box-shadow: 0 24px 70px rgba(13,22,43,0.45);
+  max-height: 85vh; overflow-y:auto;
+}
+.disclaimer-eyebrow{
+  font-family: var(--font-mono); font-size:0.75rem; text-transform:uppercase;
+  letter-spacing:0.05em; color: var(--maroon); margin:0 0 0.6em;
+}
+.disclaimer-box h2{ font-size:1.35rem; margin-bottom:0.6em; }
+.disclaimer-box p{ font-size:0.92rem; margin-bottom:0.9em; color: var(--ink-soft); }
+.disclaimer-box strong{ color: var(--navy); }
+.disclaimer-box .btn{ margin-top:0.4rem; }
+
 .page-hero{ background: var(--navy); color: var(--ivory); padding-bottom: 1rem; }
 .page-hero h1{ color: var(--paper); font-size: clamp(2rem, 4vw, 2.8rem); }
 .page-hero .eyebrow{ color: var(--gold-light); }

@@ -2,29 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://YOUR-DOMAIN-HERE/index.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <loc>https://akafoxfire.github.io/VPS-Bharni/index.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-DOMAIN-HERE/students.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <loc>https://akafoxfire.github.io/VPS-Bharni/students.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-DOMAIN-HERE/faculty.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <loc>https://akafoxfire.github.io/VPS-Bharni/faculty.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://YOUR-DOMAIN-HERE/login.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <loc>https://akafoxfire.github.io/VPS-Bharni/login.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

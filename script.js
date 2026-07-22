@@ -1,3 +1,17 @@
+// ===== Visitor disclaimer modal (present on every page) =====
+const disclaimerOverlay = document.getElementById('disclaimerOverlay');
+const disclaimerClose = document.getElementById('disclaimerClose');
+
+if (disclaimerOverlay && disclaimerClose) {
+  if (sessionStorage.getItem('vpsDisclaimerSeen')) {
+    disclaimerOverlay.classList.add('hidden');
+  }
+  disclaimerClose.addEventListener('click', () => {
+    disclaimerOverlay.classList.add('hidden');
+    sessionStorage.setItem('vpsDisclaimerSeen', '1');
+  });
+}
+
 // ===== Mobile nav toggle (present on every page) =====
 const navToggle = document.getElementById('navToggle');
 const mobileNav = document.getElementById('mobileNav');
